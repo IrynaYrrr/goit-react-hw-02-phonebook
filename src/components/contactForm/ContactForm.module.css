@@ -1,0 +1,43 @@
+.formContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40;
+  color: #010101;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid black;
+  padding: 30px;
+}
+
+.nameLabel {
+  font-size: 30px;
+}
+
+.inputName {
+  height: 20px;
+  margin-top: 10px;
+}
+
+.numberLabel {
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.inputNumber {
+  height: 20px;
+  margin-top: 10px;
+}
+
+.buttonAdd {
+  height: 30px;
+  width: 120px;
+  margin-top: 50px;
+  cursor: pointer;
+}
