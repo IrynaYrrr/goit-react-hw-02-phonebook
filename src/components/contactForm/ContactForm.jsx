@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { nanoid } from "nanoid";
 
 const INITIAL_STATE = {
   name: "",
@@ -8,6 +9,7 @@ const INITIAL_STATE = {
 export class ContactForm extends Component {
   state = { ...INITIAL_STATE };
 
+
   handleChange = evt => {
     const { name, value } = evt.target;
     this.setState({ [name]: value });
@@ -15,8 +17,6 @@ export class ContactForm extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    const { name, number } = this.state;
-    console.log(`Name: ${name}, Number: ${number}`);
     this.props.onSubmit({ ...this.state });
     this.reset();
   };

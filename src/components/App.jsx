@@ -30,6 +30,12 @@ export class App extends Component {
     }))
   }
 
+  handleDelete = (id) => {
+    this.setState((prev) => ({
+      contacts: prev.contacts.filter((contact) => contact.id !== id),
+    }))
+  }
+
   render() {
 
     return (
@@ -39,8 +45,14 @@ export class App extends Component {
           onSubmit={values => this.handleSubmitForm(values)}
         />
         <h2>Contacts</h2>
-        <Filter onChange={value => this.handleFilterChange(value)} />
-        <ContactList contacts={this.state.contacts} filter={this.state.filter}/>
+        <Filter
+          onChange={value => this.handleFilterChange(value)}
+        />
+        <ContactList
+          contacts={this.state.contacts}
+          filter={this.state.filter}
+          handleDelete={this.handleDelete}
+        />
       </div>
     )
   }

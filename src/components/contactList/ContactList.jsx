@@ -7,7 +7,14 @@ export class ContactList extends Component {
       <div>
         <ul>
           {this.props.contacts.filter((el) => el.name.toLowerCase().includes(this.props.filter.toLowerCase())).map(
-            c => <li>{c.name}:{c.number}</li>
+            c =>
+              <li key={c.id}>{c.name}:{c.number}
+                <div>
+                  <button onClick={() => this.props.handleDelete(c.id)}>
+                    Delete
+                  </button>
+                </div>
+              </li>
           )}
         </ul>
       </div>
