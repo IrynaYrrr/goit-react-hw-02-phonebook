@@ -17,10 +17,14 @@ export class App extends Component {
       name: value.name,
       id: nanoid(),
     }
-    this.setState(() => ({
-      ...this.state,
-      contacts: [newContact, ...this.state.contacts],
-    }))
+    if (this.state.contacts.find((item) => item.name === value.name)) {
+      alert(`${value.name} is already in contacts`);
+    } else {
+      this.setState(() => ({
+        ...this.state,
+        contacts: [newContact, ...this.state.contacts],
+      }))
+    }
   }
 
   handleFilterChange = (value) => {
