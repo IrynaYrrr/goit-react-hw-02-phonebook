@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { nanoid } from "nanoid";
 
 const INITIAL_STATE = {
   name: "",
@@ -34,20 +33,26 @@ export class ContactForm extends Component {
           Name
           <input
             type="text"
-            placeholder="Enter login"
             name="name"
+            placeholder="Enter name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             value={name}
             onChange={this.handleChange}
+            required
           />
         </label>
         <label>
           Number
           <input
-            type="text"
-            placeholder="Enter number"
+            type="tel"
             name="number"
+            placeholder="Enter number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             value={number}
             onChange={this.handleChange}
+            required
           />
         </label>
         <button type="submit">add contact</button>
