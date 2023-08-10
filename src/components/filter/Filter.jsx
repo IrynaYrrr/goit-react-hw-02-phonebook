@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import css from "./Filter.module.css";
+
 
 export class Filter extends Component {
 
@@ -9,11 +11,12 @@ export class Filter extends Component {
 
   render() {
     return (
-      <label>
+      <label className={css.label}>
         Find contacts by name
         <input
+          className={css.inputFind}
           type="text"
-          placeholder="enter name"
+          placeholder="Enter name"
           name="filter"
           onChange={this.handleChange}
         />

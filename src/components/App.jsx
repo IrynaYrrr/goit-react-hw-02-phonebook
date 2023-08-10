@@ -4,6 +4,15 @@ import { ContactForm } from './contactForm/ContactForm';
 import { ContactList } from './contactList/ContactList';
 import { Filter } from './filter/Filter';
 
+const headersStyles = {
+  margin: 8,
+  padding: "12px 16px",
+  borderRadius: 4,
+  backgroundColor: "orange",
+  color: "white",
+  textAlign: 'center',
+};
+
 export class App extends Component {
 
   state = {
@@ -44,11 +53,11 @@ export class App extends Component {
 
     return (
       <div>
-        <h1>Phonebook</h1>
+        <h1 style={headersStyles}>Phonebook</h1>
         <ContactForm
           onSubmit={values => this.handleSubmitForm(values)}
         />
-        <h2>Contacts</h2>
+        <h2 style={headersStyles}>Contacts</h2>
         <Filter
           onChange={value => this.handleFilterChange(value)}
         />
