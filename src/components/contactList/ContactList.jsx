@@ -1,27 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import css from "./ContactList.module.css";
 
-
-export class ContactList extends Component {
-
-  render() {
-    return (
-      <div className={css.contactsWrap}>
-        <ul>
-          {this.props.contacts.filter((el) => el.name.toLowerCase().includes(this.props.filter.toLowerCase())).map(
-            c =>
-              <li className={css.contactItem} key={c.id}>
-                <div>{c.name}: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{c.number}</div>
-                <div>
-                  <button className={css.btnDelete}
-                  onClick={() => this.props.handleDelete(c.id)}>
-                    Delete
-                  </button>
-                </div>
-              </li>
-          )}
-        </ul>
-      </div>
-    )
-  }
+export const ContactList = ({ contacts, handleDelete }) => {
+  return (
+    <div className={css.contactsWrap}>
+      <ul>
+        {contacts.map(({id, number, name}) =>
+            <li className={css.contactItem} key={id}>
+              <div>{name}: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{number}</div>
+              <div>
+                <button className={css.btnDelete}
+                  onClick={() => handleDelete(id)}>
+                  Delete
+                </button>
+              </div>
+            </li>
+        )}
+      </ul>
+    </div>
+  )
 }
